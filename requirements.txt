@@ -2,4 +2,5 @@ wheel
 boto3
 botocore
 pycognito
+requests
 jose
