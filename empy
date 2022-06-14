@@ -1,0 +1,8 @@
+#! /bin/zsh
+EMPY_VENV=/usr/local/em/venv
+EMPY_SRC=/usr/local/em/src
+
+EMAIL=''
+PASSWORD=''
+
+${EMPY_VENV}/bin/python3 ${EMPY_SRC}/main.py --email $EMAIL --password $PASSWORD

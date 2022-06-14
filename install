@@ -1,0 +1,4 @@
+#! /bin/zsh
+pushd ${0:a:h}
+make build
+popd
