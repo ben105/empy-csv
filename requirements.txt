@@ -1,0 +1,5 @@
+wheel
+boto3
+botocore
+pycognito
+jose
