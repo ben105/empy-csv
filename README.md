@@ -30,7 +30,7 @@ Double-click on the `install` file, and this should pop open a terminal and run 
 Write the following AppleScript, which should end up calling this script. It would look like the following:
 
 ```
-do shell script "empy"
+do shell script "/usr/local/bin/empy"
 ```
 
 This will download a CSV file to your ~/Downloads folder. The CSV is titled with the current date and time to help distinguish it from subsequent downloads.
