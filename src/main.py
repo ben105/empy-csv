@@ -16,7 +16,7 @@ filename = f'{Path.home()}/Downloads/Emporia Data {timestamp}.csv'
 if __name__ == '__main__':
     args = parser.parse_args()
     emporia_auth = Auth(args.email, args.password)
-    resp = fetch(emporia_auth, 'GET', 'https://api.emporiaenergy.com/devices/usage/export?deviceGid=128097&startDate=2022-05-01&endDate=2022-06-15https://api.emporiaenergy.com/devices/usage/export?deviceGid=128097&startDate=2022-05-01&endDate=2022-06-15')
+    resp = fetch(emporia_auth, 'GET', 'https://api.emporiaenergy.com/devices/usage/export?deviceGid=128097&startDate=2022-05-01&endDate=2022-06-15')
 
     with open(filename, 'wb') as csv_file:
         csv_file.write(resp.content)
