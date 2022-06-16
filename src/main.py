@@ -2,6 +2,7 @@ import argparse
 
 from auth import Auth
 from datetime import datetime
+from datetime import timedelta
 from fetch import fetch
 from pathlib import Path
 
@@ -13,10 +14,16 @@ parser.add_argument('--password', dest='password', help='your Emporia password',
 timestamp = datetime.now().strftime('%Y-%m-%d %H-%M-%S')
 filename = f'{Path.home()}/Downloads/Emporia Data {timestamp}.csv'
 
+_today = datetime.today()
+_before = _today - timedelta(10)
+
+_today_str = _today.strftime('%Y-%m-%d')
+_before_str = _before.strftime('%Y-%m-%d')
+
 if __name__ == '__main__':
     args = parser.parse_args()
     emporia_auth = Auth(args.email, args.password)
-    resp = fetch(emporia_auth, 'GET', 'https://api.emporiaenergy.com/devices/usage/export?deviceGid=128097&startDate=2022-05-01&endDate=2022-06-15')
+    resp = fetch(emporia_auth, 'GET', f'https://api.emporiaenergy.com/devices/usage/export?deviceGid=128097&startDate={_before_str}&endDate={_today_str}')
 
     with open(filename, 'wb') as csv_file:
         csv_file.write(resp.content)
